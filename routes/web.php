@@ -15,4 +15,4 @@
 
 Route::get('/', 'empleadosController@login');
 
-Route::get('/registrarEmpleado', 'empleadosController@registrar');
+Route::get('/registrarEmpleados', 'empleadosController@registrar');

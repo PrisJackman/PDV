@@ -22,7 +22,7 @@
         <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
       </div>
     </div>
-		<a href="{{url('/registrarEmpleado')}}">Registrar Nuevo Empleado</a><br><br>
+		<a href="{{url('/registrarEmpleados')}}">Registrar Nuevo Empleado</a><br><br>
         <button type="reset" class="btn btn-default">Cancel</button>
         <button type="submit" class="btn btn-primary">Entrar</button>
       </div>
