@@ -16,3 +16,8 @@
 Route::get('/', 'empleadosController@login');
 
 Route::get('/registrarEmpleados', 'empleadosController@registrar');
+
+//rutas para productos
+Route::get('/registrarProductos', 'productosController@registrar');
+Route::post('/guardarProductos',"productosController@guardar");
+Route::get('/consultarProductos', "productosController@consultar");

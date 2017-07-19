@@ -1,10 +1,6 @@
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Home</title>
-	<link rel="stylesheet" type="text/css" href="{{asset("css/bootstrap.css")}}">
-	<link rel="stylesheet" type="text/css" href="{{asset("css/Estilos.css")}}">
-</head>
+@extends('master')
+@section('contenido')
+
 <body>
 	<div class="col-xs-4 col-md-offset-4" align="center" id="login">
 	<form class="form-horizontal">
@@ -31,4 +27,4 @@
 </form>
 </div>
 </body>
-</html>
+@stop
