@@ -10,7 +10,7 @@
 			<th>Descuento</th>
 			<th>Codigo</th>
 			<th>Stock</th>
-			<th>Proveedor</th>
+			
 			<th>Categoria</th>
 			<th>Opcciones</th>
 			
@@ -23,12 +23,23 @@
 			<td>{{$a->precio}}</td>
 			<td>{{$a->descuento}}</td>
 			<td>{{$a->codigo}}</td>
-
 			<td>{{$a->stock}}</td>
-			<td>{{$a->nom_proveedor}}</td>
 			<td>{{$a->nom_categoria}}</td>
-      	
+      	<td>
+         
+
+			<a href="{{url('/editarProductos')}}/{{$a->id}}"  class="btn btn-primary btn-xs">
+				<span class="glyphicon-pencil" aria-hidden="true"></span>
+			</a>
+
+			<a href="{{url('/eliminarProductos')}}/{{$a->id}}" class="btn btn-primary btn-xs">
+				<span class="glyphicon-remove" aria-hidden="true"></span>
+				
+			</a>
+			
+		</td>	
 		</tr>
+
 		@endforeach
 	</thead>
 </table>

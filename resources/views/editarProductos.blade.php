@@ -1,7 +1,6 @@
 @extends('master')
-
 @section('contenido')
-<form action="{{url('guardarProductos')}}" method="POST" class="col-xs-6 col-md-offset-4">
+<form action="{{url('/actualizarProductos')}}/{{$producto->id}}" method="POST" class="col-xs-6 col-md-offset-4">
 <input id="token" type="hidden" name="_token" value="{{csrf_token()}}">
 	<div class="form-group">
 		<label for="nombre">Nombre:</label>
@@ -29,16 +28,16 @@
 	<div class="form-group">
 		<label for="categoria">Categoria:</label>
 		<select name="categoria" class="form-control">
+			
+			<option value="{{$producto->categoria_id}}">{{$producto->nom_categoria}}</option>
 			@foreach($categorias as $c)
-			<option value="{{$c->id}}">{{$c->nombre}}
-				
-			</option>
+				<option value="{{$c->id}}">{{$c->nombre}}</option>
 			@endforeach
 			
 		</select>
 	</div>
 	<div>
-		<button type="submit" class="btn btn-primary">Registar</button>
+		<button type="submit" class="btn btn-primary">Actualizar</button>
 		<a href="{{url('/')}}" class="btn btm-danger">Cancelar</a>
 
 	</div>

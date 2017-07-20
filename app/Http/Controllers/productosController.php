@@ -11,9 +11,8 @@ use DB;
 class productosController extends Controller
 {
     public function registrar(){
-    	$proveedores=Proveedores::all();
     	$categorias=Categorias::all();
-		return view ('registrarProductos',compact('proveedores','categorias'));
+		return view ('registrarProductos',compact('categorias'));
 	}
 	public function guardar(Request $datos)
 	{
@@ -23,7 +22,6 @@ class productosController extends Controller
 		$producto->descuento=$datos->input('descuento');
 		$producto->codigo=$datos->input('codigo');
 		$producto->stock=$datos->input('stock');
-		$producto->proveedor_id=$datos->input('proveedor');
 		$producto->categoria_id=$datos->input('categoria');
 
 		$producto->save();
@@ -31,10 +29,36 @@ class productosController extends Controller
 	}
 public function consultar(){
 	$productos=DB::table('productos')
-	->join('proveedores','productos.proveedor_id','proveedores.id')
 	->join('categorias','productos.categoria_id','categorias.id')
-	->select('productos.*','proveedores.nombre AS nom_proveedor','categorias.nombre AS nom_categoria')
+	->select('productos.*','categorias.nombre AS nom_categoria')
 	->get();
 	return view('consultarProductos',compact('productos'));
+}
+public function eliminar($id){
+	$producto=Productos::find($id);
+	$producto->delete();
+	return redirect('consultarProductos');
+}
+public function editar($id){
+	$producto=DB::table('productos')
+	->where('productos.id','=',$id)
+	->join('categorias','productos.categoria_id','categorias.id')
+	->select('productos.*','categorias.nombre AS nom_categoria')
+	->first();
+	$categorias=Categorias::all();
+	return view('editarProductos',compact('producto','categorias'));
+
+}
+public function actualizar($id,Request $datos){
+	$producto=Productos::find($id);
+	$producto->nombre=$datos->input('nombre');
+		$producto->precio=$datos->input('precio');
+		$producto->descuento=$datos->input('descuento');
+		$producto->codigo=$datos->input('codigo');
+		$producto->stock=$datos->input('stock');
+		$producto->categoria_id=$datos->input('categorias');
+		$producto->save();
+		return redirect('consultarProductos');
+
 }
 }

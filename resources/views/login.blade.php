@@ -2,7 +2,7 @@
 @section('contenido')
 
 <body>
-	<div class="col-xs-4 col-md-offset-4" align="center" id="login">
+	<div class="col-xs-6 col-md-offset-3" align="center" id="login">
 	<form class="form-horizontal">
   <fieldset>
     <legend>Bienvenido</legend>
@@ -13,9 +13,9 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="inputPassword" class="col-lg-2 control-label">Contraseña</label>
+      <label for="inputPassword" class="col-lg-2 control-label">Password </label>
       <div class="col-lg-10">
-        <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
       </div>
     </div>
 		<a href="{{url('/registrarEmpleados')}}">Registrar Nuevo Empleado</a><br><br>
