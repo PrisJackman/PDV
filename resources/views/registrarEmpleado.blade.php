@@ -1,6 +1,7 @@
 @extends('master')
 @section('contenido')
 <body>
+<div class="col-xs-6 col-md-offset-5">
 	<h2>Registrar Empleados</h2>
 	<div class="">
 	<form action="{{url('guardarEmpleados')}}") method="POST">
@@ -30,6 +31,7 @@
 		<button type="erase" class="btn btn-danger">Cancelar</button>
 		<button type="submit" class="btn btn-info">Registrar</button>
 	</form>
+</div>
 </div>
 </body>
 @stop
